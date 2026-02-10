@@ -1,10 +1,18 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./modules/zsh.nix
+    ./modules/starship.nix
+    ./modules/git.nix
+    ./modules/gaming.nix
+    ./modules/dunst.nix
+    ./modules/obs.nix
+  ];
+
   home.username = "owlsly";
   home.homeDirectory = "/home/owlsly";
 
-  # Svi tvoji programi na jednom mestu
   home.packages = with pkgs; [
     # Terminal & CLI
     alacritty
@@ -14,49 +22,42 @@
     glow
     ranger
     neovim
-    starship
-    zsh
+    nerd-fonts.jetbrains-mono
+    swww
+    bibata-cursors
+    tokyonight-gtk-theme
+    papirus-icon-theme
     
     # Browsers
-    google-chrome
     firefox
     bitwarden-desktop
+    (pkgs.google-chrome.override {
+    commandLineArgs = [
+      "--enable-features=VaapiVideoEncoder,VaapiVideoDecodeLinuxGL,CanvasOopRasterization"
+      "--ignore-gpu-blocklist"
+      "--enable-gpu-rasterization"
+      "--enable-zero-copy"
+      ];
+     })
     
     # GUI Apps
     discord
     vscode
-    obs-studio
     localsend
     jellyfin-media-player
     xfce.thunar
+    nodejs_24
+    mpv
+    megatools
     
     # Hyprland Ecosystem
     waybar
-    dunst
     rofi
     wlogout
     nwg-look
     pyprland
-    faugus-launcher
-    
-    # Gaming & Dev
-    lutris
-    prismlauncher
-    protonup-qt
-    mangohud
-    mpv
   ];
 
-  # Starship i Zsh integracija
-  programs.starship.enable = true;
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    initExtra = "eval \"$(starship init zsh)\"";
-  };
-
-  # Omogući fontove da bi ikone radile (važno za Waybar/Starship)
   fonts.fontconfig.enable = true;
-
   home.stateVersion = "25.11";
 }

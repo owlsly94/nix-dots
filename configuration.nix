@@ -3,29 +3,43 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Mreža i Regionalna podešavanja
   networking.hostName = "OwlslyBox";
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/Belgrade";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Grafika i Window Manager
-  services.xserver.enable = true;
-  services.displayManager.sddm.enable = true;
-  programs.hyprland.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+    libva
+    libva-vdpau-driver
+    libvdpau-va-gl
+    rocmPackages.clr.icd
+    ];
+  };
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
-  # Tastatura
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  environment.sessionVariables = { 
+  LIBVA_DRIVER_NAME = "radeonsi"; 
+  NIXOS_OZONE_WL = "1"; 
   };
 
-  # Zvuk (Pipewire)
-  services.pulseaudio.enable = false;
+  services.displayManager = {
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+    autoLogin = {
+      enable = true;
+      user = "owlsly";
+    };
+  };
+  programs.hyprland.enable = true;
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -34,7 +48,6 @@
     pulse.enable = true;
   };
 
-  # Korisnik (Shell je prebačen na ZSH)
   users.users.owlsly = {
     isNormalUser = true;
     description = "Owlsly";
@@ -42,21 +55,25 @@
     shell = pkgs.zsh;
   };
 
-  # Sistemski programi (Esencijalne stvari i drajveri)
   environment.systemPackages = with pkgs; [
     wget
     git
-    lact # AMD GPU alat
+    lact
     virt-manager
     wlr-randr
+    pavucontrol
+    mangohud
   ];
 
-  # Gaming i Virtualizacija (Mora sistemski)
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+  programs.gamemode.enable = true;
   virtualisation.libvirtd.enable = true;
+  
   programs.zsh.enable = true;
 
-  # Nix Podešavanja
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
