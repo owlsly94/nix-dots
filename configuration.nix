@@ -71,6 +71,7 @@
     wlr-randr
     pavucontrol
     mangohud
+    unzip
   ];
 
   programs.steam = {

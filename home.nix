@@ -28,6 +28,7 @@
     bibata-cursors
     tokyonight-gtk-theme
     papirus-icon-theme
+    hugo
     
     # Browsers
     firefox
