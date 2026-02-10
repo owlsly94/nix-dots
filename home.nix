@@ -9,6 +9,11 @@
     ./modules/dunst.nix
     ./modules/obs.nix
     ./modules/chrome-browser.nix
+    ./modules/hyprland.nix
+    ./modules/pyprland.nix
+    ./modules/hyprlock.nix
+    ./modules/waybar.nix
+    ./modules/wallpaper.nix
   ];
 
   home.username = "owlsly";
@@ -39,7 +44,6 @@
     vscode
     localsend
     jellyfin-media-player
-    xfce.thunar
     nodejs_24
     mpv
     megatools

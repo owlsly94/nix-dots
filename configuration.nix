@@ -72,6 +72,8 @@
     pavucontrol
     mangohud
     unzip
+    udiskie
+    htop
   ];
 
   programs.steam = {
@@ -94,6 +96,17 @@
   };
   programs.virt-manager.enable = true;
   services.spice-vdagentd.enable = true;
+
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
+  services.udisks2.enable = true;
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
 
   programs.zsh.enable = true;
 
