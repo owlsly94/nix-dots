@@ -74,6 +74,7 @@
     unzip
     udiskie
     htop
+    glfw
   ];
 
   programs.steam = {
