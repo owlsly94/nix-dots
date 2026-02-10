@@ -25,4 +25,8 @@ in
   home.packages = [
     myChrome
   ];
+
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
 }
