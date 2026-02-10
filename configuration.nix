@@ -61,7 +61,7 @@
   users.users.owlsly = {
     isNormalUser = true;
     description = "Owlsly";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "video" "kvm" "spice" ];
     shell = pkgs.zsh;
   };
 
@@ -79,17 +79,20 @@
   };
   programs.gamemode.enable = true;
 
-  virtualisation.libvirtd = {
-  enable = true;
-  qemu = {
-    package = pkgs.qemu_kvm;
-    runAsRoot = true;
-    swtpm.enable = true;
-    vhostUserPackages = [ pkgs.virtiofsd ];
-    };
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+        vhostUserPackages = [ pkgs.virtiofsd ];
+      };
+     };
+    spiceUSBRedirection.enable = true;
   };
-  virtualisation.spiceUSBRedirection.enable = true;
   programs.virt-manager.enable = true;
+  services.spice-vdagentd.enable = true;
 
   programs.zsh.enable = true;
 
