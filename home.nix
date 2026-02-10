@@ -8,6 +8,7 @@
     ./modules/gaming.nix
     ./modules/dunst.nix
     ./modules/obs.nix
+    ./modules/chrome-browser.nix
   ];
 
   home.username = "owlsly";
@@ -31,15 +32,7 @@
     # Browsers
     firefox
     bitwarden-desktop
-    (pkgs.google-chrome.override {
-    commandLineArgs = [
-      "--enable-features=VaapiVideoEncoder,VaapiVideoDecodeLinuxGL,CanvasOopRasterization"
-      "--ignore-gpu-blocklist"
-      "--enable-gpu-rasterization"
-      "--enable-zero-copy"
-      ];
-     })
-    
+        
     # GUI Apps
     discord
     vscode

@@ -28,6 +28,16 @@
   NIXOS_OZONE_WL = "1"; 
   };
 
+  systemd.services.lactd = {
+  description = "AMDGPU Control Daemon";
+  after = [ "multi-user.target" ];
+  wantedBy = [ "multi-user.target" ];
+  serviceConfig = {
+    ExecStart = "${pkgs.lact}/bin/lact daemon";
+    Restart = "always";
+    };
+  };
+
   services.displayManager = {
     sddm = {
       enable = true;
@@ -58,8 +68,6 @@
   environment.systemPackages = with pkgs; [
     wget
     git
-    lact
-    virt-manager
     wlr-randr
     pavucontrol
     mangohud
@@ -70,8 +78,19 @@
     gamescopeSession.enable = true;
   };
   programs.gamemode.enable = true;
-  virtualisation.libvirtd.enable = true;
-  
+
+  virtualisation.libvirtd = {
+  enable = true;
+  qemu = {
+    package = pkgs.qemu_kvm;
+    runAsRoot = true;
+    swtpm.enable = true;
+    vhostUserPackages = [ pkgs.virtiofsd ];
+    };
+  };
+  virtualisation.spiceUSBRedirection.enable = true;
+  programs.virt-manager.enable = true;
+
   programs.zsh.enable = true;
 
   nix.gc = {
