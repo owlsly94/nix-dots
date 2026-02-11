@@ -1,14 +1,16 @@
 { config, pkgs, ... }:
 
+let
+  c = config.lib.stylix.colors;
+in
 {
   programs.hyprlock = {
     enable = true;
     settings = {
-      # BACKGROUND
       background = [
         {
           monitor = "";
-          path = "/home/owlsly/.config/wallpapers/jinx04.jpg";
+          path = "${config.stylix.image}";
           blur_passes = 2;
           contrast = 0.9;
           brightness = 0.5;
@@ -17,7 +19,6 @@
         }
       ];
 
-      # GENERAL
       general = {
         no_fade_in = true;
         no_fade_out = true;
@@ -26,7 +27,6 @@
         disable_loading_bar = true;
       };
 
-      # INPUT FIELD
       "input-field" = [
         {
           monitor = "";
@@ -36,10 +36,10 @@
           dots_spacing = 0.2;
           dots_center = true;
           outer_color = "rgba(0, 0, 0, 0)";
-          inner_color = "rgba(53, 52, 77, 0.5)";
-          font_color = "rgb(200, 200, 200)";
+          inner_color = "rgba(${c.base01-rgb-r}, ${c.base01-rgb-g}, ${c.base01-rgb-b}, 0.5)";
+          font_color = "rgb(${c.base05-rgb-r}, ${c.base05-rgb-g}, ${c.base05-rgb-b})";
           fade_on_empty = false;
-          font_family = "Syne";
+          font_family = "JetBrainsMono Nerd Font";
           placeholder_text = "";
           hide_input = false;
           position = "0, -200";
@@ -48,34 +48,30 @@
         }
       ];
 
-      # LABELS (Time and Date)
       label = [
-        # Hour
         {
           monitor = "";
           text = "cmd[update:1000] echo -e \"$(date +\"%H\")\"";
-          color = "rgba(146, 140, 255, 1)";
+          color = "rgb(${c.base0E-rgb-r}, ${c.base0E-rgb-g}, ${c.base0E-rgb-b})"; # base0E (Magenta/Purple)
           font_family = "JetBrainsMono Nerd Font Bold";
           font_size = 180;
           position = "0, 300";
           halign = "center";
           valign = "center";
         }
-        # Minute
         {
           monitor = "";
           text = "cmd[update:1000] echo -e \"$(date +\"%M\")\"";
-          color = "rgba(255, 255, 255, 1)";
+          color = "rgb(${c.base05-rgb-r}, ${c.base05-rgb-g}, ${c.base05-rgb-b})"; # base05 (Foreground/White)
           font_family = "JetBrainsMono Nerd Font Bold";
           font_size = 180;
           position = "0, 75";
           halign = "center";
           valign = "center";
         }
-        # Date
         {
           monitor = "";
-          text = "cmd[update:1000] echo \"<span color='##ffffff00'>$(date '+%A, ')</span><span color='##928cff00'>$(date '+%d %B')</span>\"";
+          text = "cmd[update:1000] echo \"<span color='#${c.base05}'>$(date '+%A, ')</span><span color='#${c.base0E}'>$(date '+%d %B')</span>\"";
           font_size = 30;
           font_family = "JetBrainsMono Nerd Font";
           position = "0, -80";

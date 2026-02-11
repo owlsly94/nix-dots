@@ -1,32 +1,35 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
+let
+  c = config.lib.stylix.colors;
+in
 {
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
 
     settings = {
-      # Glavna podešavanja
       add_newline = true;
       command_timeout = 5000;
 
-      # Format spojen u jednu liniju unutar Nix stringa kako bi se izbegle greške sa backslash-om (\)
-      format = "[](#24283b)$python$username[](bg:#414868 fg:#24283b)$directory[](fg:#414868 bg:#565f89)$git_branch$git_status[](fg:#565f89 bg:#7aa2f7)$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust[](fg:#7aa2f7 bg:#7dcfff)$docker_context[](fg:#7dcfff bg:#bb9af7)$time[ ](fg:#bb9af7)";
+      # Dynamic Format using Stylix Colors
+      # base01 (Darker BG), base02 (Lighter BG), base03 (Comment), base0D (Blue), base0C (Cyan), base0E (Magenta)
+      format = "[](#${c.base01})$python$username[](bg:#${c.base02} fg:#${c.base01})$directory[](fg:#${c.base02} bg:#${c.base03})$git_branch$git_status[](fg:#${c.base03} bg:#${c.base0D})$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust[](fg:#${c.base0D} bg:#${c.base0C})$docker_context[](fg:#${c.base0C} bg:#${c.base0E})$time[ ](fg:#${c.base0E})";
 
       character = {
-        success_symbol = "[➜](bold green)";
-        error_symbol = "[➜](bold red)";
+        success_symbol = "[➜](bold #${c.base0B})"; # Green
+        error_symbol = "[➜](bold #${c.base08})";   # Red
       };
 
       username = {
         show_always = true;
-        style_user = "bg:#24283b fg:#c0caf5";
-        style_root = "bg:#24283b fg:#f7768e";
+        style_user = "bg:#${c.base01} fg:#${c.base05}";
+        style_root = "bg:#${c.base01} fg:#${c.base08}";
         format = "[󰏒  $user ]($style)";
       };
 
       directory = {
-        style = "bg:#414868 fg:#7dcfff";
+        style = "bg:#${c.base02} fg:#${c.base0C}";
         format = "[ $path ]($style)";
         truncation_length = 3;
         truncation_symbol = "…/";
@@ -43,56 +46,55 @@
 
       git_branch = {
         symbol = "󰘬";
-        style = "bg:#565f89 fg:#c0caf5";
+        style = "bg:#${c.base03} fg:#${c.base05}";
         format = "[ $symbol $branch ]($style)";
       };
 
       git_status = {
-        style = "bg:#565f89 fg:#f7768e";
+        style = "bg:#${c.base03} fg:#${c.base08}";
         format = "[$all_status$ahead_behind ]($style)";
       };
 
       python = {
         symbol = "󱔎 ";
-        style = "bg:#24283b fg:#ff9e64";
-        # Koristimo duple navodnike za kraće stringove, \$ sprečava Nix da traži varijablu
-        format = "[\${symbol}(\$virtualenv )]($style)";
+        style = "bg:#${c.base01} fg:#${c.base09}"; # base09 is typically Orange
+        format = "[ \${symbol}(\$virtualenv )]($style)";
       };
 
       time = {
         disabled = false;
         time_format = "%R";
-        style = "bg:#bb9af7 fg:#1a1b26";
+        style = "bg:#${c.base0E} fg:#${c.base00}";
         format = "[ $time ]($style)";
       };
 
       c = {
         symbol = " ";
-        style = "bg:#7aa2f7 fg:#1a1b26";
+        style = "bg:#${c.base0D} fg:#${c.base00}";
         format = "[ $symbol ($version) ]($style)";
       };
 
       rust = {
         symbol = " ";
-        style = "bg:#7aa2f7 fg:#1a1b26";
+        style = "bg:#${c.base0D} fg:#${c.base00}";
         format = "[ $symbol ($version) ]($style)";
       };
 
       nodejs = {
         symbol = "󰎙 ";
-        style = "bg:#7aa2f7 fg:#1a1b26";
+        style = "bg:#${c.base0D} fg:#${c.base00}";
         format = "[ $symbol ($version) ]($style)";
       };
 
       golang = {
         symbol = " ";
-        style = "bg:#7aa2f7 fg:#1a1b26";
+        style = "bg:#${c.base0D} fg:#${c.base00}";
         format = "[ $symbol ($version) ]($style)";
       };
 
       docker_context = {
         symbol = "󰡨 ";
-        style = "bg:#7dcfff fg:#1a1b26";
+        style = "bg:#${c.base0C} fg:#${c.base00}";
         format = "[ $symbol $context ]($style)";
       };
     };

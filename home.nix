@@ -1,9 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
+    inputs.stylix.homeModules.stylix
+    
+    ./modules/theme.nix
     ./modules/zsh.nix
     ./modules/starship.nix
+    ./modules/kitty.nix
     ./modules/git.nix
     ./modules/gaming.nix
     ./modules/dunst.nix
@@ -14,6 +18,7 @@
     ./modules/hyprlock.nix
     ./modules/waybar.nix
     ./modules/wallpaper.nix
+    ./modules/rofi.nix
   ];
 
   home.username = "owlsly";
@@ -28,11 +33,7 @@
     glow
     ranger
     neovim
-    nerd-fonts.jetbrains-mono
     swww
-    bibata-cursors
-    tokyonight-gtk-theme
-    papirus-icon-theme
     hugo
     
     # Browsers
@@ -47,6 +48,8 @@
     nodejs_24
     mpv
     megatools
+    grim
+    slurp
     
     # Hyprland Ecosystem
     waybar
@@ -54,8 +57,10 @@
     wlogout
     nwg-look
     pyprland
+    papirus-icon-theme
   ];
 
   fonts.fontconfig.enable = true;
+
   home.stateVersion = "25.11";
 }

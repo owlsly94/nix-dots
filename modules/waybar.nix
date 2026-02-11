@@ -1,77 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  # Simply change this variable to "catppuccin", "nord", "gruvbox", "rose-pine", or "tokyonight"
-  selectedTheme = "tokyonight";
-
-  # Define all theme colors in a Nix attribute set
-  themes = {
-    tokyonight = ''
-      @define-color bg rgba(26, 27, 38, 0.9);
-      @define-color bg_alt rgba(36, 40, 59, 1.0);
-      @define-color fg #c0caf5;
-      @define-color cyan #7dcfff;
-      @define-color blue #7aa2f7;
-      @define-color magenta #bb9af7;
-      @define-color pink #ff007c;
-      @define-color green #9ece6a;
-      @define-color yellow #e0af68;
-      @define-color red #f7768e;
-      @define-color comment #565f89;
-    '';
-    catppuccin = ''
-      @define-color bg rgba(30, 30, 46, 0.9);
-      @define-color bg_alt rgba(17, 17, 27, 1.0);
-      @define-color fg #cdd6f4;
-      @define-color cyan #89dceb;
-      @define-color blue #89b4fa;
-      @define-color magenta #cba6f7;
-      @define-color pink #f5c2e7;
-      @define-color green #a6e3a1;
-      @define-color yellow #f9e2af;
-      @define-color red #f38ba8;
-      @define-color comment #7f849c;
-    '';
-    nord = ''
-      @define-color bg rgba(46, 52, 64, 0.9);
-      @define-color bg_alt rgba(59, 66, 82, 1.0);
-      @define-color fg #eceff4;
-      @define-color cyan #88c0d0;
-      @define-color blue #81a1c1;
-      @define-color magenta #b48ead;
-      @define-color pink #b48ead;
-      @define-color green #a3be8c;
-      @define-color yellow #ebcb8b;
-      @define-color red #bf616a;
-      @define-color comment #4c566a;
-    '';
-    gruvbox = ''
-      @define-color bg rgba(40, 40, 40, 0.9);
-      @define-color bg_alt rgba(50, 48, 47, 1.0);
-      @define-color fg #ebdbb2;
-      @define-color cyan #8ec07c;
-      @define-color blue #458588;
-      @define-color magenta #b16286;
-      @define-color pink #d3869b;
-      @define-color green #b8bb26;
-      @define-color yellow #fabd2f;
-      @define-color red #fb4934;
-      @define-color comment #928374;
-    '';
-    rose-pine = ''
-      @define-color bg rgba(25, 23, 36, 0.9);
-      @define-color bg_alt rgba(31, 29, 46, 1.0);
-      @define-color fg #e0def4;
-      @define-color cyan #9ccfd8;
-      @define-color blue #31748f;
-      @define-color magenta #c4a7e7;
-      @define-color pink #ebbcba;
-      @define-color green #908caa;
-      @define-color yellow #f6c177;
-      @define-color red #eb6f92;
-      @define-color comment #6e6a86;
-    '';
-  };
+  c = config.lib.stylix.colors;
 in
 {
   programs.waybar = {
@@ -82,7 +12,7 @@ in
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
+        height = 36;
         spacing = 4;
 
         modules-left = [ "hyprland/workspaces" ];
@@ -159,58 +89,72 @@ in
       };
     };
 
-   style = ''
-      @import "colors.css";
-
+    style = ''
+      /* Using Stylix hex colors - c.baseXX returns hex without # */
+      
       * {
           border: none;
           border-radius: 0;
           font-family: "JetBrainsMono Nerd Font";
           font-weight: bold;
-          font-size: 14.7px;
+          font-size: 15px;
           min-height: 0;
       }
 
       window#waybar {
-          background-color: @bg;
-          color: @fg;
-          border-bottom: 2px solid rgba(187, 154, 247, 0.2);
+          background-color: #${c.base00};
+          color: #${c.base05};
+          border-bottom: 2px solid #${c.base0E};
       }
 
       #workspaces, #taskbar, #window, #cpu, #memory, #temperature, #pulseaudio, #clock, #tray {
-          margin: 4px 3px;
+          margin: 6px 3px;
           padding: 2px 12px;
           border-radius: 12px;
-          background-color: @bg_alt;
+          background-color: #${c.base01};
       }
 
       #workspaces button {
           padding: 0 8px;
-          color: @comment;
+          color: #${c.base03};
           background: transparent;
           border-radius: 8px;
           transition: all 0.3s ease;
       }
 
-      #workspaces button:hover { color: @cyan; }
-      #workspaces button.active { color: @magenta; }
-      #workspaces button.urgent { color: @red; background: rgba(247, 118, 142, 0.2); }
+      #workspaces button:hover { 
+          color: #${c.base0C}; 
+      }
 
-      #cpu { color: @magenta; }
-      #temperature { color: @cyan; }
-      #memory { color: @green; }
-      #pulseaudio { color: @yellow; }
-      #clock { color: @pink; }
-      #pulseaudio.muted { color: @comment; }
-      #temperature.critical { color: @bg; background-color: @red; }
+      #workspaces button.active { 
+          color: #${c.base0E}; 
+      }
+
+      #workspaces button.urgent { 
+          color: #${c.base08}; 
+      }
+
+      #cpu { color: #${c.base0E}; }
+      #temperature { color: #${c.base0C}; }
+      #memory { color: #${c.base0B}; }
+      #pulseaudio { color: #${c.base0A}; }
+      #clock { color: #${c.base0F}; }
+      #pulseaudio.muted { color: #${c.base03}; }
+      
+      #temperature.critical { 
+          color: #${c.base00}; 
+          background-color: #${c.base08}; 
+      }
 
       tooltip {
-          background: @bg;
-          border: 1px solid @magenta;
+          background: #${c.base00};
+          border: 1px solid #${c.base0E};
           border-radius: 8px;
       }
-      tooltip label { color: @fg; }
+      
+      tooltip label { 
+          color: #${c.base05}; 
+      }
     '';
   }; 
-  home.file.".config/waybar/colors.css".text = themes."${selectedTheme}";
 }

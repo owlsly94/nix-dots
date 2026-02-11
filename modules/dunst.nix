@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
+let
+  c = config.lib.stylix.colors;
+in
 {
   services.dunst = {
     enable = true;
@@ -33,9 +36,9 @@
         horizontal_padding = 12;
         text_icon_padding = 10;
 
-        # Frame settings
+        # Frame settings - Using base0D (Blue/Accent)
         frame_width = 2;
-        frame_color = "#7aa2f7";
+        frame_color = "#${c.base0D}";
         gap_size = 8;
         separator_color = "frame";
 
@@ -46,7 +49,8 @@
         font = "JetBrainsMono Nerd Font Bold 10";
         line_height = 0;
         markup = "full";
-        format = "<span foreground='#7aa2f7' weight='bold' size='large'>%s</span>\\n%b";
+        # Format: Heading uses base0D (Accent), body uses base05 (Foreground)
+        format = "<span foreground='#${c.base0D}' weight='bold' size='large'>%s</span>\\n%b";
         alignment = "left";
         vertical_alignment = "center";
         show_age_threshold = 60;
@@ -85,23 +89,23 @@
       };
 
       urgency_low = {
-        background = "#1a1b26";
-        foreground = "#787c99";
-        frame_color = "#414868";
+        background = "#${c.base00}";
+        foreground = "#${c.base03}"; # Dimmer/Comment color
+        frame_color = "#${c.base02}"; # Subtle frame
         timeout = 5;
       };
 
       urgency_normal = {
-        background = "#1a1b26";
-        foreground = "#c0caf5";
-        frame_color = "#7aa2f7";
+        background = "#${c.base00}";
+        foreground = "#${c.base05}"; # Normal text
+        frame_color = "#${c.base0D}"; # Accent color
         timeout = 10;
       };
 
       urgency_critical = {
-        background = "#1a1b26";
-        foreground = "#f7768e";
-        frame_color = "#f7768e";
+        background = "#${c.base00}";
+        foreground = "#${c.base08}"; # Red for alert
+        frame_color = "#${c.base08}"; # Red for alert
         timeout = 0;
       };
     };

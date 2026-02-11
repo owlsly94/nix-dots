@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   wayland.windowManager.hyprland = {
@@ -101,8 +101,6 @@
         gaps_in = 5;
         gaps_out = 5;
         border_size = 2;
-        "col.active_border" = "rgba(7aa2f7ff) rgba(7aa2f7ff) 45deg";
-        "col.inactive_border" = "rgba(59595933)";
         layout = "master";
         allow_tearing = false;
       };
