@@ -4,7 +4,7 @@
   stylix = {
     enable = true;
     image = ../wallpaper.png; 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     polarity = "dark";
     
     enableReleaseChecks = false;
@@ -41,5 +41,6 @@
     targets.hyprland.enable = true;
     targets.waybar.enable = false;
     targets.kitty.enable = true;
+    targets.gtk.enable = true;
   };
 }

@@ -21,6 +21,8 @@
     rocmPackages.clr.icd
     ];
   };
+
+  boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   environment.sessionVariables = { 
@@ -75,6 +77,7 @@
     udiskie
     htop
     glfw
+    tree
   ];
 
   programs.steam = {

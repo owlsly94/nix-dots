@@ -12,8 +12,6 @@ in
       add_newline = true;
       command_timeout = 5000;
 
-      # Dynamic Format using Stylix Colors
-      # base01 (Darker BG), base02 (Lighter BG), base03 (Comment), base0D (Blue), base0C (Cyan), base0E (Magenta)
       format = "[](#${c.base01})$python$username[](bg:#${c.base02} fg:#${c.base01})$directory[](fg:#${c.base02} bg:#${c.base03})$git_branch$git_status[](fg:#${c.base03} bg:#${c.base0D})$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust[](fg:#${c.base0D} bg:#${c.base0C})$docker_context[](fg:#${c.base0C} bg:#${c.base0E})$time[ ](fg:#${c.base0E})";
 
       character = {

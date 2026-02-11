@@ -104,7 +104,8 @@ in
       window#waybar {
           background-color: #${c.base00};
           color: #${c.base05};
-          border-bottom: 2px solid #${c.base0E};
+          /*border-bottom: 2px solid #${c.base0A};*/
+	  /*border-top: 2px solid #${c.base0A};*/
       }
 
       #workspaces, #taskbar, #window, #cpu, #memory, #temperature, #pulseaudio, #clock, #tray {
