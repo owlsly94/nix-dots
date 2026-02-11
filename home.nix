@@ -38,6 +38,7 @@
     
     # Browsers
     firefox
+    floorp-bin
     bitwarden-desktop
         
     # GUI Apps
