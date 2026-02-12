@@ -34,6 +34,7 @@
     neovim
     swww
     hugo
+    ffmpeg
     firefox
     floorp-bin
     bitwarden-desktop
