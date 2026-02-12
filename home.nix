@@ -44,6 +44,7 @@
     jellyfin-media-player
     nodejs_24
     mpv
+    kdePackages.kdenlive
     megatools
     grim
     slurp
