@@ -25,7 +25,6 @@
   home.homeDirectory = "/home/owlsly";
 
   home.packages = with pkgs; [
-    # Terminal & CLI
     alacritty
     kitty
     btop
@@ -35,13 +34,9 @@
     neovim
     swww
     hugo
-    
-    # Browsers
     firefox
     floorp-bin
     bitwarden-desktop
-        
-    # GUI Apps
     discord
     vscode
     localsend
@@ -51,8 +46,6 @@
     megatools
     grim
     slurp
-    
-    # Hyprland Ecosystem
     waybar
     rofi
     wlogout
