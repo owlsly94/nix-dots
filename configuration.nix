@@ -83,6 +83,7 @@
     htop
     glfw
     tree
+    ffmpegthumbnailer
   ];
 
   programs.steam = {

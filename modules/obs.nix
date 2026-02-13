@@ -10,6 +10,8 @@
       obs-vaapi                  
       obs-gstreamer              
       obs-vkcapture              
+      obs-move-transition
+      obs-composite-blur
     ];
   };
 }
