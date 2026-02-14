@@ -41,6 +41,7 @@
     # Terminals & Development
     alacritty
     kitty
+    neovim
     vscode
     nodejs_24
 
