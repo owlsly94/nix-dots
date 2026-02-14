@@ -6,22 +6,22 @@
   ];
 
   ############################################
-  ### BOOTLOADER & SYSTEM CONFIGURATION ###
+  ##### BOOTLOADER & SYSTEM CONFIGURATION ####
   ############################################
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   ##################################
-  ### NETWORKING & LOCALIZATION ###
+  ### NETWORKING & LOCALIZATION ####
   ##################################
   networking.hostName = "OwlslyBox";
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/Belgrade";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  ###################################
+  ####################################
   ### HARDWARE & GPU CONFIGURATION ###
-  ###################################
+  ####################################
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -43,7 +43,7 @@
   };
 
   ##############################
-  ### AMDGPU CONTROL DAEMON ###
+  ### AMDGPU CONTROL DAEMON ####
   ##############################
   systemd.services.lactd = {
     description = "AMDGPU Control Daemon";
@@ -56,7 +56,7 @@
   };
 
   ##################################
-  ### DISPLAY MANAGER & WAYLAND ###
+  ### DISPLAY MANAGER & WAYLAND ####
   ##################################
   services.displayManager = {
     sddm = {
@@ -75,7 +75,7 @@
   };
 
   #######################
-  ### AUDIO SETUP ###
+  ##### AUDIO SETUP #####
   #######################
   security.rtkit.enable = true;
   services.pipewire = {
@@ -86,7 +86,7 @@
   };
 
   #####################
-  ### USER SETUP ###
+  ##### USER SETUP ####
   #####################
   users.users.owlsly = {
     isNormalUser = true;
@@ -96,7 +96,7 @@
   };
 
   ############################
-  ### SYSTEM PACKAGES ###
+  ##### SYSTEM PACKAGES ######
   ############################
   environment.systemPackages = with pkgs; [
     # Package managers & versioning
@@ -139,9 +139,9 @@
     };
   };
 
-  #########################
+  ##########################
   ### FILE MANAGER SETUP ###
-  #########################
+  ##########################
   services.gvfs.enable = true;
   services.tumbler.enable = true;
   services.udisks2.enable = true;
@@ -153,9 +153,9 @@
     ];
   };
 
-  ###########################
+  ############################
   ### VIRTUALIZATION SETUP ###
-  ###########################
+  ############################
   virtualisation = {
     libvirtd = {
       enable = true;
@@ -173,9 +173,9 @@
 
   programs.zsh.enable = true;
 
-  #######################
+  #########################
   ### NIX CONFIGURATION ###
-  #######################
+  #########################
   nix.settings.auto-optimise-store = true;
   nix.gc = {
     automatic = true;
