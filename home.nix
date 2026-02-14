@@ -4,6 +4,7 @@
   imports = [
     inputs.stylix.homeModules.stylix
     ./modules/theme.nix
+    ./modules/neovim.nix
     ./modules/zsh.nix
     ./modules/starship.nix
     ./modules/kitty.nix
@@ -29,7 +30,6 @@
     "alacritty".source = ./config/alacritty;
     "MangoHud".source = ./config/MangoHud;
     "mpv".source = ./config/mpv;
-    "nvim".source = ./config/nvim;
     "wallpapers".source = ./config/wallpapers;
     "wlogout".source = ./config/wlogout;
     "fastfetch".source = ./config/fastfetch;
@@ -42,7 +42,6 @@
     # Terminals & Development
     alacritty
     kitty
-    neovim
     vscode
     nodejs_24
 
