@@ -69,7 +69,7 @@
   users.users.owlsly = {
     isNormalUser = true;
     description = "Owlsly";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "video" "kvm" "spice" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "video" "kvm" "spice" "gamemode" ];
     shell = pkgs.zsh;
   };
 
@@ -90,7 +90,22 @@
     enable = true;
     gamescopeSession.enable = true;
   };
-  programs.gamemode.enable = true;
+
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+    settings = {
+      general = {
+        softrealtime = "auto";
+        renice = 10;
+      };
+      custom = {
+        start = "${pkgs.dunst}/bin/dunstify -a 'Gamemode' 'Optimizations activated' -u low";
+        end = "${pkgs.dunst}/bin/dunstify -a 'Gamemode' 'Optimizations deactivated' -u low";
+      };
+    };
+  };
+  boot.kernelModules = [ "cpufreq_performance" ];
 
   virtualisation = {
     libvirtd = {
