@@ -4,7 +4,7 @@ let
   c = config.lib.stylix.colors;
 in
 {
-  # Disable Stylix target for Rofi so our custom rasi config works perfectly
+  # Disable Stylix target for Rofi so custom rasi config works perfectly
   stylix.targets.rofi.enable = false;
 
   programs.rofi = {

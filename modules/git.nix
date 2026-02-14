@@ -3,15 +3,12 @@
 {
   programs.git = {
     enable = true;
-    
-    # All settings now go under this attribute
     settings = {
       user = {
         name = "Owlsly";
         email = "stefan.stanimirovic09@gmail.com";
       };
 
-      # Your old extraConfig moves here directly
       init = {
         defaultBranch = "main";
       };
@@ -22,7 +19,6 @@
         rebase = true;
       };
 
-      # Your old aliases move here
       alias = {
         co = "checkout";
         br = "branch";
