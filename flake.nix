@@ -15,6 +15,7 @@
       system = "x86_64-linux";
     in {
     nixosConfigurations.OwlslyBox = nixpkgs.lib.nixosSystem {
+      inherit system;
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix

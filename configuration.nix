@@ -17,28 +17,29 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-    libva
-    libva-vdpau-driver
-    libvdpau-va-gl
-    rocmPackages.clr.icd
+      libva
+      libva-vdpau-driver
+      libvdpau-va-gl
+      rocmPackages.clr.icd
     ];
   };
 
   boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelModules = [ "cpufreq_performance" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  environment.sessionVariables = { 
-  LIBVA_DRIVER_NAME = "radeonsi"; 
-  NIXOS_OZONE_WL = "1"; 
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "radeonsi";
+    NIXOS_OZONE_WL = "1";
   };
 
   systemd.services.lactd = {
-  description = "AMDGPU Control Daemon";
-  after = [ "multi-user.target" ];
-  wantedBy = [ "multi-user.target" ];
-  serviceConfig = {
-    ExecStart = "${pkgs.lact}/bin/lact daemon";
-    Restart = "always";
+    description = "AMDGPU Control Daemon";
+    after = [ "multi-user.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
+      Restart = "always";
     };
   };
 
@@ -53,7 +54,7 @@
     };
   };
 
-  programs.hyprland = { 
+  programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
@@ -105,7 +106,6 @@
       };
     };
   };
-  boot.kernelModules = [ "cpufreq_performance" ];
 
   virtualisation = {
     libvirtd = {
@@ -136,9 +136,9 @@
   programs.zsh.enable = true;
 
   nix.gc = {
-  automatic = true;
-  dates = "weekly";
-  options = "--delete-older-than 7d";
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
   };
 
   nixpkgs.config.allowUnfree = true;

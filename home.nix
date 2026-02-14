@@ -3,7 +3,6 @@
 {
   imports = [
     inputs.stylix.homeModules.stylix
-    
     ./modules/theme.nix
     ./modules/zsh.nix
     ./modules/starship.nix

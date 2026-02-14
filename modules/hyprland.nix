@@ -38,7 +38,6 @@
       "$myEditor" = "code";
       "$steam" = "~/.config/hypr/scripts/steam.sh";
       "$screenshot" = "grim -g \"$(slurp)\" ~/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png";
-      "$HBO" = "thorium-browser --app=\"https://play.hbomax.com/\" --window-size=1900,1100";
 
       #################
       ### AUTOSTART ###
@@ -68,7 +67,6 @@
         # Workspace 2: Browsers
         "workspace 2, class:^(google-chrome)$"
         "workspace 2, class:^(firefox)$"
-        "workspace 2, class:^(zen-alpha)$" # Adding Zen just in case
 
         # Workspace 3: Code
         "workspace 3, class:^(code-url-handler)$"
@@ -87,7 +85,6 @@
 
         # Workspace 8: Communication
         "workspace 8, class:^(discord)$"
-        "workspace 8, class:^(vesktop)$" # Common discord alternative
 
         # General Fixes
         "suppressevent maximize, class:.*"

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: # Dodat 'lib' ovde
+{ config, pkgs, lib, ... }:
 
 {
   programs.zsh = {
@@ -7,7 +7,6 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    # Istorija
     history = {
       size = 2000;
       save = 2000;
@@ -18,16 +17,13 @@
       share = true;
     };
 
-    # Vi mod
     defaultKeymap = "viins";
 
-    # PATH i Environment varijable
     envExtra = ''
       export PATH=$PATH:/var/lib/flatpak/exports/bin:~/.local/share/flatpak/exports/bin
       export PATH="$HOME/.emacs.d/bin:$PATH"
     '';
 
-    # SPOJENO: Sve funkcije i zstyle u jedan mkBefore blok
     initContent = lib.mkBefore ''
       # Completion i zstyle
       zstyle ':completion:*' menu select
@@ -58,14 +54,12 @@
       extract() {
         if [ -f "$1" ]; then
           case "$1" in
-            *.tar.bz2) tar xjf "$1" ;;
-            *.tar.gz)  tar xzf "$1" ;;
+            *.tar.bz2|*.tbz2) tar xjf "$1" ;;
+            *.tar.gz|*.tgz)   tar xzf "$1" ;;
             *.bz2)     bunzip2 "$1" ;;
             *.rar)     unrar x "$1" ;;
             *.gz)      gunzip "$1" ;;
             *.tar)     tar xf "$1" ;;
-            *.tbz2)    tar xjf "$1" ;;
-            *.tgz)     tar xzf "$1" ;;
             *.zip)     unzip "$1" ;;
             *.Z)       uncompress "$1" ;;
             *.7z)      7z x "$1" ;;
@@ -76,7 +70,6 @@
         fi
       }
 
-      # Zoxide inicijalizacija
       if command -v zoxide &> /dev/null; then
         eval "$(zoxide init zsh)"
       fi
