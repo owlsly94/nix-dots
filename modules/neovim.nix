@@ -30,20 +30,17 @@
   home.activation.setupNeovimConfig = lib.hm.dag.entryAfter ["linkGeneration"] ''
     mkdir -p $HOME/.config/nvim/{lua/owlsly,after/plugin}
     
-    # Remove any symlinks that might have been created by programs.neovim
+    # Remove any symlinks that might have been created
     rm -f $HOME/.config/nvim/init.lua
     
-    # Copy init.lua
     ${pkgs.coreutils}/bin/cp -f ${../config/nvim/init.lua} $HOME/.config/nvim/init.lua
     ${pkgs.coreutils}/bin/chmod 644 $HOME/.config/nvim/init.lua
     
-    # Copy lua modules
     ${pkgs.coreutils}/bin/cp -f ${../config/nvim/lua/owlsly/init.lua} $HOME/.config/nvim/lua/owlsly/init.lua
     ${pkgs.coreutils}/bin/cp -f ${../config/nvim/lua/owlsly/lazy.lua} $HOME/.config/nvim/lua/owlsly/lazy.lua
     ${pkgs.coreutils}/bin/cp -f ${../config/nvim/lua/owlsly/options.lua} $HOME/.config/nvim/lua/owlsly/options.lua
     ${pkgs.coreutils}/bin/cp -f ${../config/nvim/lua/owlsly/remaps.lua} $HOME/.config/nvim/lua/owlsly/remaps.lua
     
-    # Copy after/plugin configs
     ${pkgs.coreutils}/bin/cp -f ${../config/nvim/after/plugin/autocomplete.lua} $HOME/.config/nvim/after/plugin/autocomplete.lua
     ${pkgs.coreutils}/bin/cp -f ${../config/nvim/after/plugin/autopairs.lua} $HOME/.config/nvim/after/plugin/autopairs.lua
     ${pkgs.coreutils}/bin/cp -f ${../config/nvim/after/plugin/colorizer.lua} $HOME/.config/nvim/after/plugin/colorizer.lua
@@ -57,7 +54,6 @@
     ${pkgs.coreutils}/bin/cp -f ${../config/nvim/after/plugin/nvimtree.lua} $HOME/.config/nvim/after/plugin/nvimtree.lua
     ${pkgs.coreutils}/bin/cp -f ${../config/nvim/after/plugin/trouble.lua} $HOME/.config/nvim/after/plugin/trouble.lua
     
-    # Copy lazy-lock.json
     ${pkgs.coreutils}/bin/cp -f ${../config/nvim/lazy-lock.json} $HOME/.config/nvim/lazy-lock.json
     ${pkgs.coreutils}/bin/chmod 644 $HOME/.config/nvim/lazy-lock.json
   '';
