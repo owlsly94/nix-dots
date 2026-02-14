@@ -4,7 +4,6 @@
   imports = [
     inputs.stylix.homeModules.stylix
     ./modules/theme.nix
-    ./modules/neovim.nix
     ./modules/zsh.nix
     ./modules/starship.nix
     ./modules/kitty.nix
