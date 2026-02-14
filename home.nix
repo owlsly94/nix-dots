@@ -35,39 +35,54 @@
     "fastfetch".source = ./config/fastfetch;
   };
 
+  fonts.fontconfig.enable = true;
+
+  # Home packages - organized by category for maintainability
   home.packages = with pkgs; [
+    # Terminals & Development
     alacritty
     kitty
+    neovim
+    vscode
+    nodejs_24
+
+    # System Utilities
     btop
     fastfetch
     glow
     ranger
-    neovim
+    tree
+
+    # Graphics & Screenshot Tools
     swww
-    hugo
-    ffmpeg
-    firefox
-    floorp-bin
-    bitwarden-desktop
-    discord
-    vscode
-    localsend
-    jellyfin-media-player
-    nodejs_24
-    mpv
-    kdePackages.kdenlive
-    megatools
     grim
     slurp
+    papirus-icon-theme
+
+    # Media & Entertainment
+    mpv
+    ffmpeg
+    hugo
+    jellyfin-media-player
+    kdePackages.kdenlive
+
+    # Networking & Communication
+    bitwarden-desktop
+    discord
+    localsend
+
+    # Wayland & GUI Tools
     waybar
     rofi
     wlogout
     nwg-look
     pyprland
-    papirus-icon-theme
-  ];
 
-  fonts.fontconfig.enable = true;
+    # Additional Tools
+    megatools
+    firefox
+    floorp-bin
+  ];
 
   home.stateVersion = "25.11";
 }

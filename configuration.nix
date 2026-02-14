@@ -5,14 +5,23 @@
     ./hardware-configuration.nix
   ];
 
+  ############################################
+  ### BOOTLOADER & SYSTEM CONFIGURATION ###
+  ############################################
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  ##################################
+  ### NETWORKING & LOCALIZATION ###
+  ##################################
   networking.hostName = "OwlslyBox";
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/Belgrade";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  ###################################
+  ### HARDWARE & GPU CONFIGURATION ###
+  ###################################
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -33,6 +42,9 @@
     NIXOS_OZONE_WL = "1";
   };
 
+  ##############################
+  ### AMDGPU CONTROL DAEMON ###
+  ##############################
   systemd.services.lactd = {
     description = "AMDGPU Control Daemon";
     after = [ "multi-user.target" ];
@@ -43,6 +55,9 @@
     };
   };
 
+  ##################################
+  ### DISPLAY MANAGER & WAYLAND ###
+  ##################################
   services.displayManager = {
     sddm = {
       enable = true;
@@ -59,6 +74,9 @@
     xwayland.enable = true;
   };
 
+  #######################
+  ### AUDIO SETUP ###
+  #######################
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -67,6 +85,9 @@
     pulse.enable = true;
   };
 
+  #####################
+  ### USER SETUP ###
+  #####################
   users.users.owlsly = {
     isNormalUser = true;
     description = "Owlsly";
@@ -74,19 +95,30 @@
     shell = pkgs.zsh;
   };
 
+  ############################
+  ### SYSTEM PACKAGES ###
+  ############################
   environment.systemPackages = with pkgs; [
+    # Package managers & versioning
     wget
     git
-    pavucontrol
-    mangohud
-    unzip
-    udiskie
-    htop
-    glfw
-    tree
-    ffmpegthumbnailer
+
+    # System utilities
+    pavucontrol      # Audio volume control
+    mangohud         # Performance overlay
+    unzip            # Archive extraction
+    udiskie          # Auto-mount USB devices
+    htop             # System monitor
+    tree             # Directory tree display
+
+    # Development & graphics
+    glfw              # OpenGL window library
+    ffmpegthumbnailer # Thumbnail generation for videos
   ];
 
+  ####################
+  ### GAMING SETUP ###
+  ####################
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
@@ -107,21 +139,9 @@
     };
   };
 
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-        runAsRoot = true;
-        swtpm.enable = true;
-        vhostUserPackages = [ pkgs.virtiofsd ];
-      };
-     };
-    spiceUSBRedirection.enable = true;
-  };
-  programs.virt-manager.enable = true;
-  services.spice-vdagentd.enable = true;
-
+  #########################
+  ### FILE MANAGER SETUP ###
+  #########################
   services.gvfs.enable = true;
   services.tumbler.enable = true;
   services.udisks2.enable = true;
@@ -133,8 +153,29 @@
     ];
   };
 
+  ###########################
+  ### VIRTUALIZATION SETUP ###
+  ###########################
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+        vhostUserPackages = [ pkgs.virtiofsd ];
+      };
+    };
+    spiceUSBRedirection.enable = true;
+  };
+  programs.virt-manager.enable = true;
+  services.spice-vdagentd.enable = true;
+
   programs.zsh.enable = true;
 
+  #######################
+  ### NIX CONFIGURATION ###
+  #######################
   nix.gc = {
     automatic = true;
     dates = "weekly";

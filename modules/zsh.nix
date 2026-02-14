@@ -94,7 +94,7 @@
       update = "sudo nixos-rebuild switch --flake .#OwlslyBox";
       conf = "nvim /etc/nixos/home.nix";
       cd = "z";
-      nix-up="cd /home/owlsly/nix-dots && nix flake update && sudo nixos-rebuild switch --flake .#OwlslyBox";
+      nix-up = "cd $HOME/nix-dots && nix flake update && sudo nixos-rebuild switch --flake .#OwlslyBox";
     };
   };
 
