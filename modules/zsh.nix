@@ -30,7 +30,6 @@
       zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-      # Funkcije
       lazyg() {
         git add .
         git commit -m "$1"
@@ -91,8 +90,7 @@
       server = "ssh stefan@192.168.1.21";
       movie = "mpv --profile=movies";
       yt = "mpv --profile=youtube";
-      update = "sudo nixos-rebuild switch --flake .#OwlslyBox";
-      conf = "nvim /etc/nixos/home.nix";
+      conf = "nvim $HOME/nix-dots";
       cd = "z";
       nix-up = "cd $HOME/nix-dots && nix flake update && sudo nixos-rebuild switch --flake .#OwlslyBox";
     };
