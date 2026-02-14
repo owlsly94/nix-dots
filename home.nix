@@ -24,6 +24,18 @@
   home.username = "owlsly";
   home.homeDirectory = "/home/owlsly";
 
+  xdg.enable = true;
+
+  xdg.configFile = {
+    "alacritty".source = ./config/alacritty;
+    "MangoHud".source = ./config/MangoHud;
+    "mpv".source = ./config/mpv;
+    "nvim".source = ./config/nvim;
+    "wallpapers".source = ./config/wallpapers;
+    "wlogout".source = ./config/wlogout;
+    "fastfetch".source = ./config/fastfetch;
+  };
+
   home.packages = with pkgs; [
     alacritty
     kitty
