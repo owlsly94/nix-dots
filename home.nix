@@ -63,10 +63,12 @@
     hugo
     jellyfin-media-player
     kdePackages.kdenlive
+    audacity
 
     # Networking & Communication
     bitwarden-desktop
     discord
+    telegram-desktop
     localsend
 
     # Wayland & GUI Tools
