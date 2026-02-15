@@ -85,7 +85,7 @@ text = "#1E1E2E"
 #shape = "Block"
 
 [font]
-size = 11.0
+size = 12.7
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"

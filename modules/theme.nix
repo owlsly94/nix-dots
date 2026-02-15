@@ -42,6 +42,7 @@
       hyprland.enable = false;
       waybar.enable = false;
       kitty.enable = true;
+      alacritty.enable = false;
       gtk.enable = true;
     };
   };
