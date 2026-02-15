@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 let
+  c = config.lib.stylix.colors;
   wall-rasi = pkgs.writeText "wall-style.rasi" ''
     configuration {
         show-icons: true;
@@ -9,12 +10,12 @@ let
     }
 
     * {
-        bg: #0b0f14;
-        bg-alt: #16191e;
-        bg-selected: #242931;
-        fg: #ffffff;
-        fg-alt: #949494;
-        accent: #7aa2f7;
+        bg: #${c.base00};
+        bg-alt: #${c.base01};
+        bg-selected: #${c.base03};
+        fg: #${c.base05};
+        fg-alt: #${c.base05};
+        accent: #${c.base0A};
         transparent: rgba(0,0,0,0);
     }
 
