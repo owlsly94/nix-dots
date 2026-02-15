@@ -36,11 +36,13 @@
       };
     };
 
-    targets.dunst.enable = false;
-    targets.hyprlock.enable = false;
-    targets.hyprland.enable = true;
-    targets.waybar.enable = false;
-    targets.kitty.enable = true;
-    targets.gtk.enable = true;
+    targets = {
+      dunst.enable = false;
+      hyprlock.enable = false;
+      hyprland.enable = false;
+      waybar.enable = false;
+      kitty.enable = true;
+      gtk.enable = true;
+    };
   };
 }

@@ -98,6 +98,9 @@
         border_size = 2;
         layout = "master";
         allow_tearing = false;
+        "col.active_border" = "rgb(${config.lib.stylix.colors.base0A}) rgb(${config.lib.stylix.colors.base0E}) 45deg";
+        "col.inactive_border" = "rgb(${config.lib.stylix.colors.base01})";
+
       };
 
       decoration = {
@@ -113,6 +116,13 @@
           passes = 2;
           new_optimizations = true;
           special = true;
+        };
+
+        shadow = {
+          enabled = true;
+          range = 4;
+          render_power = 3;
+          color = "rgb(${config.lib.stylix.colors.base01})";
         };
       };
 
@@ -192,7 +202,7 @@
 
         ## System & Scripts
         "ALT, L, exec, hyprlock"
-	"SUPER, W, exec, wall-selector"
+	      "SUPER, W, exec, wall-selector"
         "ALT SHIFT, R, exec, pkill -SIGUSR2 waybar"
 
         ## Scratchpads (Pyprland)

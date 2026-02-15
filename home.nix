@@ -36,7 +36,6 @@
 
   fonts.fontconfig.enable = true;
 
-  # Home packages - organized by category for maintainability
   home.packages = with pkgs; [
     # Terminals & Development
     alacritty
