@@ -92,7 +92,8 @@
       yt = "mpv --profile=youtube";
       conf = "nvim $HOME/nix-dots";
       cd = "z";
-      nix-up = "cd $HOME/nix-dots && nix flake update && sudo nixos-rebuild switch --flake .#OwlslyBox";
+      update = "cd $HOME/nix-dots && sudo nixos-rebuild switch --flake .#OwlslyBox";
+      upgrade = "cd $HOME/nix-dots && nix flake update && sudo nixos-rebuild switch --flake .#OwlslyBox";
     };
   };
 
