@@ -14,6 +14,7 @@
     ./modules/dunst.nix
     ./modules/fastfetch.nix
     ./modules/obs.nix
+    ./modules/mpv.nix
     ./modules/chrome-browser.nix
     ./modules/hyprland.nix
     ./modules/pyprland.nix
@@ -29,7 +30,6 @@
   xdg.enable = true;
 
   xdg.configFile = {
-    "mpv".source = ./config/mpv;
     "wallpapers".source = ./config/wallpapers;
     "wlogout".source = ./config/wlogout;
   };
