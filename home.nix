@@ -11,6 +11,7 @@
     ./modules/git.nix
     ./modules/gaming.nix
     ./modules/dunst.nix
+    ./modules/fastfetch.nix
     ./modules/obs.nix
     ./modules/chrome-browser.nix
     ./modules/hyprland.nix
@@ -31,7 +32,6 @@
     "mpv".source = ./config/mpv;
     "wallpapers".source = ./config/wallpapers;
     "wlogout".source = ./config/wlogout;
-    "fastfetch".source = ./config/fastfetch;
   };
 
   fonts.fontconfig.enable = true;
