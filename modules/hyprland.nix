@@ -98,7 +98,7 @@
         border_size = 2;
         layout = "master";
         allow_tearing = false;
-        "col.active_border" = "rgb(${config.lib.stylix.colors.base0A}) rgb(${config.lib.stylix.colors.base0E}) 45deg";
+        "col.active_border" = "rgb(${config.lib.stylix.colors.base0D}) rgb(${config.lib.stylix.colors.base0B}) 45deg";
         "col.inactive_border" = "rgb(${config.lib.stylix.colors.base01})";
 
       };

@@ -128,7 +128,7 @@ in
       }
 
       #workspaces button.active { 
-          color: #${c.base0E}; 
+          color: #${c.base0B}; 
       }
 
       #workspaces button.urgent { 
