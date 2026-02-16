@@ -7,6 +7,7 @@
     ./modules/zsh.nix
     ./modules/starship.nix
     ./modules/kitty.nix
+    ./modules/alacritty.nix
     ./modules/git.nix
     ./modules/gaming.nix
     ./modules/dunst.nix
@@ -26,7 +27,6 @@
   xdg.enable = true;
 
   xdg.configFile = {
-    "alacritty".source = ./config/alacritty;
     "MangoHud".source = ./config/MangoHud;
     "mpv".source = ./config/mpv;
     "wallpapers".source = ./config/wallpapers;
