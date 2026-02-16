@@ -28,7 +28,7 @@ in
         fg = mkLiteral "#${c.base05}";
         cyan = mkLiteral "#${c.base0C}";
         blue = mkLiteral "#${c.base0D}";
-        magenta = mkLiteral "#${c.base0E}";
+        magenta = mkLiteral "#${c.base0D}";
         gray = mkLiteral "#${c.base03}";
 
         background-color = mkLiteral "transparent";
