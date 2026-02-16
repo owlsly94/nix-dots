@@ -22,6 +22,7 @@
     ./modules/waybar.nix
     ./modules/wallpaper.nix
     ./modules/rofi.nix
+    ./modules/applications.nix
   ];
 
   home.username = "owlsly";
@@ -35,55 +36,6 @@
   };
 
   fonts.fontconfig.enable = true;
-
-  home.packages = with pkgs; [
-    # Terminals & Development
-    alacritty
-    kitty
-    neovim
-    vscode
-    nodejs_24
-
-    # System Utilities
-    btop
-    fastfetch
-    glow
-    ranger
-    tree
-
-    # Graphics & Screenshot Tools
-    swww
-    grim
-    slurp
-    papirus-icon-theme
-
-    # Media & Entertainment
-    mpv
-    ffmpeg
-    hugo
-    jellyfin-media-player
-    kdePackages.kdenlive
-    audacity
-
-    # Networking & Communication
-    bitwarden-desktop
-    discord
-    telegram-desktop
-    localsend
-
-    # Wayland & GUI Tools
-    waybar
-    rofi
-    wlogout
-    nwg-look
-    pyprland
-
-    # Additional Tools
-    megatools
-    firefox
-    floorp-bin
-    inputs.zen-browser.packages."${pkgs.system}".default
-  ];
 
   home.stateVersion = "25.11";
 }
