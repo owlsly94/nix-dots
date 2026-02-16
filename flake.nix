@@ -8,9 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
+    zen-browser.url = "github:youwen5/zen-browser-flake";
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, zen-browser, ... }@inputs:
     let
       system = "x86_64-linux";
     in {

@@ -82,6 +82,7 @@
     megatools
     firefox
     floorp-bin
+    inputs.zen-browser.packages."${pkgs.system}".default
   ];
 
   home.stateVersion = "25.11";
