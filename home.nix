@@ -10,6 +10,7 @@
     ./modules/alacritty.nix
     ./modules/git.nix
     ./modules/gaming.nix
+    ./modules/mangohud.nix
     ./modules/dunst.nix
     ./modules/fastfetch.nix
     ./modules/obs.nix
@@ -28,7 +29,6 @@
   xdg.enable = true;
 
   xdg.configFile = {
-    "MangoHud".source = ./config/MangoHud;
     "mpv".source = ./config/mpv;
     "wallpapers".source = ./config/wallpapers;
     "wlogout".source = ./config/wlogout;
