@@ -15,7 +15,6 @@
         "SDL_VIDEODRIVER,wayland,x11"
         "CLUTTER_BACKEND,wayland"
         "GDK_SCALE,1"
-        "XCURSOR_SIZE,20"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
@@ -23,7 +22,7 @@
         "QT_QPA_PLATFORMTHEME,qt6ct"
         "MOZ_ENABLE_WAYLAND,1"
         "CHROME_CONFIG_FLAGS,--password-store=gnome-libsecret"
-        "BROWSER,google-chrome-stable"
+        "BROWSER,${pkgs.google-chrome}/bin/google-chrome-stable"
       ];
 
       ###################
@@ -36,7 +35,6 @@
       "$browser_p" = "firefox -p";
       "$browser2" = "brave";
       "$myEditor" = "code";
-      "$steam" = "~/.config/hypr/scripts/steam.sh";
       "$screenshot" = "grim -g \"$(slurp)\" ~/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png";
 
       #################
@@ -44,18 +42,9 @@
       #################
       "exec-once" = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "gnome-keyring-daemon --start --components=secrets"
-        "~/.config/hypr/scripts/xdg.sh"
-        "dunst"
         "swww-daemon"
-        "pypr"
-        "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-        "udiskie"
-        "hyprctl setcursor Bibata-Modern-Ice 20"
-        "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'"
-        "gsettings set org.gnome.desktop.interface color-scheme prefer-dark"
-        "/usr/bin/pypr"
+        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
+        "${pkgs.pyprland}/bin/pypr"
       ];
 
       ##############################
@@ -170,7 +159,7 @@
       };
 
       xwayland = {
-        force_zero_scaling = true;
+        force_zero_scaling = true; # true if you're on a 1080p/1440p monitor. false if you're on 4K or mixed DPI.
       };
 
       ###################
@@ -197,7 +186,7 @@
         "ALT, D, exec, thunar"
 
         ## Media & Gaming
-        "ALT, G, exec, $steam"
+        "ALT, G, exec, steam"
         "ALT, J, exec, jellyfin-desktop"
         "SUPER, P, exec, $screenshot"
         "SUPER, M, exec, prismlauncher"

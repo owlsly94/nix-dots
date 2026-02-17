@@ -34,6 +34,18 @@
     "wallpapers".source = ./config/wallpapers;
     "wlogout".source = ./config/wlogout;
   };
+  
+  services.udiskie = {
+    enable = true;
+    automount = true;
+    notify = true;
+    tray = "auto";
+  };
+
+  services.gnome-keyring = {
+    enable = true;
+    components = [ "secrets" ];
+  };
 
   fonts.fontconfig.enable = true;
 
