@@ -73,6 +73,9 @@
         # Workspace 4: File Manager
         "workspace 4, class:^(thunar)$"
 
+        # Workspace 5: Jellyfin
+        "workspace 4, class:^(org.jellyfin.JellyfinDesktop)$"
+
         # Workspace 6: Media/Streaming
         "workspace 6, class:^(com.obsproject.Studio)$"
 
