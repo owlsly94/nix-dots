@@ -36,7 +36,7 @@
   };
 
   boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelModules = [ "cpufreq_performance" ];
+  powerManagement.cpuFreqGovernor = "schedutil";
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   environment.sessionVariables = {
@@ -88,6 +88,11 @@
       general = {
         softrealtime = "auto";
         renice = 10;
+      };
+      cpu = {
+        governor = "performance";
+        park_cores = false;
+        pin_cores = false;
       };
       custom = {
         start = "${pkgs.dunst}/bin/dunstify -a 'Gamemode' 'Optimizations activated' -u low";
