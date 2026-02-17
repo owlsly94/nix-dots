@@ -10,7 +10,10 @@
   ############################################
   ##### BOOTLOADER & SYSTEM CONFIGURATION ####
   ############################################
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 10;  # Only keep last 10 generations in boot menu
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   ##################################
@@ -106,7 +109,10 @@
   #########################
   ### NIX CONFIGURATION ###
   #########################
-  nix.settings.auto-optimise-store = true;
+  nix.optimise = {
+    automatic = true;
+    dates = [ "weekly" ];
+  };
   nix.gc = {
     automatic = true;
     dates = "weekly";
