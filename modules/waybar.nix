@@ -160,7 +160,7 @@ in
 
       tooltip {
           background: #${c.base00};
-          border: 1px solid #${c.base0E};
+          border: 1px solid #${c.base0D};
           border-radius: 8px;
       }
       
