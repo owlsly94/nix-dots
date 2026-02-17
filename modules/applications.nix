@@ -53,6 +53,6 @@
     megatools  # MEGA cloud storage CLI
 
     # Flake inputs
-    inputs.zen-browser.packages."${pkgs.system}".default  # Zen browser
+    inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default  # Zen browser
   ];
 }
