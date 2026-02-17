@@ -79,9 +79,20 @@ in
 
         "clock" = {
           format = "󰃰  {:%H:%M %a %e.%b}";
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          rotate = 0;
+          format-alt = "{  %d·%m·%y}";
+          tooltip-format = "<span>{calendar}</span>";
+          calendar = {
+            mode = "month";
+            format = {
+              months = "<span color='#${c.base0E}'><b>{}</b></span>";
+              days = "<span color='#${c.base05}'><b>{}</b></span>";
+              weekdays = "<span color='#${c.base0C}'><b>{}</b></span>";
+              today = "<span color='#${c.base0A}'><b>{}</b></span>";
+            };
+          };
         };
-
+        
         "tray" = {
           icon-size = 16;
           spacing = 10;
