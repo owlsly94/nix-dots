@@ -9,8 +9,14 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
-    zen-browser.url = "github:youwen5/zen-browser-flake";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, zen-browser, ... }@inputs:
@@ -26,6 +32,7 @@
       specialArgs = { inherit inputs pkgs-unstable; };
       modules = [
         ./configuration.nix
+        { nixpkgs.config.allowUnfree = true; }
         stylix.nixosModules.stylix
 
         {
