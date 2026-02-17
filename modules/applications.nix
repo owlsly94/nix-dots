@@ -28,7 +28,7 @@
     mpv                         # Minimal video player
     ffmpeg                      # Audio/video processing toolkit
     hugo                        # Static site generator
-    jellyfin-media-player       # Jellyfin desktop client
+    jellyfin-desktop            # Jellyfin desktop client
     kdePackages.kdenlive        # Non-linear video editor
     audacity                    # Audio editor
 
