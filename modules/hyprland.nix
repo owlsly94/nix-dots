@@ -30,10 +30,8 @@
       ###################
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
-      "$menu" = "wofi --show drun";
       "$browser" = "firefox";
       "$browser_p" = "firefox -p";
-      "$browser2" = "brave";
       "$myEditor" = "code";
       "$screenshot" = "grim -g \"$(slurp)\" ~/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png";
 
@@ -42,7 +40,6 @@
       #################
       "exec-once" = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "swww-daemon"
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "${pkgs.pyprland}/bin/pypr"
       ];
@@ -179,7 +176,6 @@
         ## Browsers & Productivity
         "SUPER, F, exec, firefox"
         "SUPER SHIFT, F, exec, $browser_p"
-        "SUPER, Z, exec, zen-browser"
         "SUPER, B, exec, google-chrome-stable"
         "SUPER, C, exec, code"
         "SUPER, O, exec, obs"

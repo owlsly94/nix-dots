@@ -116,7 +116,7 @@ let
     WALL_DIR="$HOME/.config/wallpapers"
 
     if [ ! -d "$WALL_DIR" ]; then
-        ${pkgs.libnotify}/bin/notify-send "Error" "Wallpaper directory not found: $WALL_DIR"
+        ${pkgs.dunst}/bin/dunstify -a "Error" "Wallpaper directory not found: $WALL_DIR" -u low
         exit 1
     fi
 
@@ -134,6 +134,7 @@ let
 
     if [ -n "$choice" ]; then
         ${pkgs.swww}/bin/swww img "$WALL_DIR/$choice" --transition-type center --transition-fps 60
+        ${pkgs.dunst}/bin/dunstify -a "Wallpaper" "Changed to $choice" -u low
     fi
   '';
 
@@ -143,4 +144,17 @@ in
     wall-selector 
     pkgs.swww 
   ];
+
+  # Manage swww-daemon as a proper systemd service
+  systemd.user.services.swww = {
+    Unit = {
+      Description = "Wayland wallpaper daemon";
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.swww}/bin/swww-daemon";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
 }
