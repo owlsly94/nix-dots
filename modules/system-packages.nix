@@ -13,6 +13,7 @@
     udiskie           # Auto-mount USB devices (tray applet)
     htop              # Interactive process viewer
     tree              # Directory tree display
+    lm_sensors        # Hardware monitoring tools
 
     # Development & graphics
     glfw              # OpenGL/Vulkan window context library
