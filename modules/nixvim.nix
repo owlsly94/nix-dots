@@ -3,6 +3,7 @@
   programs.nixvim = {
     enable = true;
     version.enableNixpkgsReleaseCheck = false;
+    globals.mapleader = " ";
 
     # ── Options ──────────────────────────────────────────────────────────
     opts = {
