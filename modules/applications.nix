@@ -7,7 +7,6 @@
     kitty      # Feature-rich terminal with graphics support
 
     # Development
-    neovim     # Modal text editor
     vscode     # GUI code editor
     nodejs_24  # JavaScript runtime
 

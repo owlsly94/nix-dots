@@ -3,6 +3,8 @@
 {
   imports = [
     inputs.stylix.homeModules.stylix
+    inputs.nixvim.homeModules.nixvim
+    ./modules/nixvim.nix
     ./modules/theme.nix
     ./modules/zsh.nix
     ./modules/starship.nix

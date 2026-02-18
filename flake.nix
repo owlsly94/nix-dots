@@ -9,6 +9,10 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +23,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, zen-browser, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixvim, stylix, zen-browser, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs-unstable = import nixpkgs-unstable {
@@ -34,7 +38,6 @@
         ./configuration.nix
         { nixpkgs.config.allowUnfree = true; }
         stylix.nixosModules.stylix
-
         {
           nixpkgs.overlays = [
             (final: prev: {
@@ -51,7 +54,7 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
           home-manager.users.owlsly = import ./home.nix;
-          home-manager.extraSpecialArgs = { inherit inputs pkgs-unstable; };
+          home-manager.extraSpecialArgs = { inherit inputs pkgs-unstable nixvim; };
         }
       ];
     };
