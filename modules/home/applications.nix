@@ -29,12 +29,12 @@
     hugo                        # Static site generator
     jellyfin-desktop            # Jellyfin desktop client
     kdePackages.kdenlive        # Non-linear video editor
-    audacity                    # Audio editor
+    #audacity                    # Audio editor
 
     # Networking & Communication
     bitwarden-desktop  # Password manager
     discord            # Voice/text chat
-    telegram-desktop   # Messaging app
+    #telegram-desktop   # Messaging app
     localsend          # Local file sharing (AirDrop alternative)
 
     # Wayland & Desktop GUI
@@ -46,7 +46,7 @@
 
     # Browsers
     firefox    # Mozilla browser
-    floorp-bin # Firefox fork with extra customisation
+    #floorp-bin # Firefox fork with extra customisation
 
     # Additional Tools
     megatools  # MEGA cloud storage CLI
