@@ -4,27 +4,27 @@
   imports = [
     inputs.stylix.homeModules.stylix
     inputs.nixvim.homeModules.nixvim
-    ./modules/nixvim.nix
-    ./modules/theme.nix
-    ./modules/zsh.nix
-    ./modules/starship.nix
-    ./modules/kitty.nix
-    ./modules/alacritty.nix
-    ./modules/git.nix
-    ./modules/gaming.nix
-    ./modules/mangohud.nix
-    ./modules/dunst.nix
-    ./modules/fastfetch.nix
-    ./modules/obs.nix
-    ./modules/mpv.nix
-    ./modules/chrome-browser.nix
-    ./modules/hyprland.nix
-    ./modules/pyprland.nix
-    ./modules/hyprlock.nix
-    ./modules/waybar.nix
-    ./modules/wallpaper.nix
-    ./modules/rofi.nix
-    ./modules/applications.nix
+    ./modules/home/nixvim.nix
+    ./modules/home/theme.nix
+    ./modules/home/zsh.nix
+    ./modules/home/starship.nix
+    ./modules/home/kitty.nix
+    ./modules/home/alacritty.nix
+    ./modules/home/git.nix
+    ./modules/home/gaming.nix
+    ./modules/home/mangohud.nix
+    ./modules/home/dunst.nix
+    ./modules/home/fastfetch.nix
+    ./modules/home/obs.nix
+    ./modules/home/mpv.nix
+    ./modules/home/chrome-browser.nix
+    ./modules/home/hyprland.nix
+    ./modules/home/pyprland.nix
+    ./modules/home/hyprlock.nix
+    ./modules/home/waybar.nix
+    ./modules/home/wallpaper.nix
+    ./modules/home/rofi.nix
+    ./modules/home/applications.nix
   ];
 
   home.username = "owlsly";

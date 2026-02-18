@@ -3,7 +3,7 @@
 {
   stylix = {
     enable = true;
-    image = ../wallpaper.png; 
+    image = ../../wallpaper.png; 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
     polarity = "dark";
     
