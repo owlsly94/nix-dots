@@ -17,6 +17,5 @@
     # Development & graphics
     glfw              # OpenGL/Vulkan window context library
     ffmpegthumbnailer # Video thumbnail generation for file managers
-    davinci-resolve   # Video editing software
   ];
 }
