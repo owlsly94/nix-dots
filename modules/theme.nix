@@ -44,6 +44,7 @@
       kitty.enable = true;
       alacritty.enable = false;
       gtk.enable = true;
+      nixvim.enable = false;
     };
   };
 }
