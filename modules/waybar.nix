@@ -57,7 +57,7 @@ in
         };
 
         "temperature" = {
-          hwmon-path = "/sys/class/hwmon/hwmon1/temp1_input";
+          hwmon-path = "/sys/class/hwmon/hwmon3/temp1_input";
           critical-threshold = 80;
           format = "{icon} {temperatureC}°C";
           format-icons = [ "" "" "" ];
