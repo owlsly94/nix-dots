@@ -58,5 +58,17 @@
         }
       ];
     };
+    #Development environment templates
+    templates = {
+      python = {
+        path = ./templates/python;
+        description = "Python development environment with common packages";
+      };
+
+      web = {
+        path = ./templates/web;
+        description = "Web development with Node.js, npm, pnpm, and build tools";
+      };
+    };
   };
 }
