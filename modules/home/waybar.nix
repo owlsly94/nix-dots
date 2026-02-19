@@ -66,6 +66,8 @@ in
         "memory" = {
           format = "  {used} GB";
           on-click = "kitty -e htop";
+          tooltip = true;
+          tooltip-format = "RAM: {used:0.1f}GB / {total:0.1f}GB ({percentage}%)\nSwap: {swapUsed:0.1f}GB / {swapTotal:0.1f}GB";
         };
 
         "pulseaudio" = {
