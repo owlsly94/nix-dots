@@ -119,6 +119,10 @@ in
 	        /*border-top: 2px solid #${c.base0A};*/
       }
 
+      #waybar.empty .modules-center{
+        opacity:0;
+      }
+
       #workspaces, #taskbar, #window, #cpu, #memory, #temperature, #pulseaudio, #clock, #tray {
           margin: 6px 3px;
           padding: 2px 12px;
