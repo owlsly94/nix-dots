@@ -11,6 +11,7 @@
     ./modules/home/kitty.nix
     ./modules/home/alacritty.nix
     ./modules/home/git.nix
+    ./modules/home/development.nix
     ./modules/home/gaming.nix
     ./modules/home/mangohud.nix
     ./modules/home/dunst.nix

@@ -69,6 +69,11 @@
         path = ./templates/web;
         description = "Web development with Node.js, npm, pnpm, and build tools";
       };
+
+      rust = {
+        path = ./templates/rust;
+        description = "Rust development with cargo, rust-analyzer, and common tools";
+      };
     };
   };
 }

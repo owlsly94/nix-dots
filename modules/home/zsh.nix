@@ -94,8 +94,6 @@
       cd = "z";
       update = "cd $HOME/nix-dots && sudo nixos-rebuild switch --flake .#OwlslyBox";
       upgrade = "cd $HOME/nix-dots && nix flake update && sudo nixos-rebuild switch --flake .#OwlslyBox";
-      devpy = "nix flake init -t ~/nix-dots#python && echo 'use flake' > .envrc && direnv allow";
-      devweb = "nix flake init -t ~/nix-dots#web && echo 'use flake' > .envrc && direnv allow";
     };
   };
 
