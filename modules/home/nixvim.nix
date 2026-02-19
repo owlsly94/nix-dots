@@ -405,6 +405,41 @@
 
       # Wilder
       wilder.enable = true;
+
+      #Which-key
+      which-key.enable = true;
+
+      #Indent-blankline
+      indent-blankline = {
+        enable = true;
+        settings = {
+          indent = {
+            char = "│";
+            tab_char = "│";
+          };
+          scope = {
+            enabled = true;
+            show_start = true;
+            show_end = false;
+          };
+          exclude = {
+            filetypes = [
+              "help"
+              "dashboard"
+              "neo-tree"
+              "trouble"
+              "lazy"
+              "mason"
+              "notify"
+              "toggleterm"
+            ];
+            buftypes = [
+              "terminal"
+              "nofile"
+            ];
+          };
+        };
+      };
     };
 
     # ── Trouble keymaps (need Lua callbacks) ─────────────────────────────
