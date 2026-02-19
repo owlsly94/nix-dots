@@ -40,7 +40,7 @@
       #################
       "exec-once" = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "noctalia-shell --no-duplicate"
+        #"noctalia-shell --no-duplicate"
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "${pkgs.pyprland}/bin/pypr"
       ];

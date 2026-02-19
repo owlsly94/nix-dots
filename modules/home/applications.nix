@@ -53,6 +53,6 @@
 
     # Flake inputs
     inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default  # Zen browser
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    #inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

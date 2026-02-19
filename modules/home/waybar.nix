@@ -5,7 +5,7 @@ let
 in
 {
   programs.waybar = {
-    enable = false;
+    enable = true;
     systemd.enable = true;
 
     settings = {
@@ -115,7 +115,7 @@ in
       }
 
       window#waybar {
-          background-color: #${c.base00};
+          background: linear-gradient(to bottom, #${c.base00}, rgba(0, 0, 0, 1));
           color: #${c.base05};
           /*border-bottom: 2px solid #${c.base0A};*/
 	        /*border-top: 2px solid #${c.base0A};*/
@@ -125,31 +125,64 @@ in
         opacity:0;
       }
 
-      #workspaces, #taskbar, #window, #cpu, #memory, #temperature, #pulseaudio, #clock, #tray {
+      #taskbar, #window, #cpu, #memory, #temperature, #pulseaudio, #clock, #tray {
           margin: 6px 3px;
           padding: 2px 12px;
           border-radius: 12px;
           background-color: #${c.base01};
       }
 
-      #workspaces button {
-          padding: 0 8px;
-          color: #${c.base03};
-          background: transparent;
-          border-radius: 8px;
-          transition: all 0.3s ease;
+      #workspaces {
+        margin: 6px 3px;
+        padding: 6px;
+        border-radius: 12px;
+        background-color: #${c.base01};
       }
 
+      #workspaces button {
+          padding: 0 0 0 2px;
+          margin: 0 3px;
+          color: #${c.base01};
+          background: #${c.base0E};
+          border-radius: 50%;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          min-width: 24px;
+          min-height: 24px;
+      }
+      
       #workspaces button:hover { 
-          color: #${c.base0C}; 
+          background-color: #${c.base0B}; 
+          color: #${c.base01};
       }
 
       #workspaces button.active { 
-          color: #${c.base0B}; 
+          color: #${c.base00}; 
+          background-color: #${c.base0D};
+          font-weight: bold;
+          border-radius: 16px;
+          border: none;
+          padding: 0 12px;
       }
 
       #workspaces button.urgent { 
-          color: #${c.base08}; 
+        color: #${c.base00};
+        background-color: #${c.base08};
+        animation: urgent-blink 1s ease infinite;
+      }
+
+      @keyframes blink {
+        to {
+          opacity: 0.7;
+        }
+      }
+      
+      #pulseaudio {
+        transition: all 0.2s ease;
+      }
+
+      #pulseaudio.muted {
+        color: #${c.base03};
+        opacity: 0.5;
       }
 
       #cpu { color: #${c.base0E}; }
