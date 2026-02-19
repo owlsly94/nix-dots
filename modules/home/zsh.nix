@@ -94,6 +94,7 @@
       cd = "z";
       update = "cd $HOME/nix-dots && sudo nixos-rebuild switch --flake .#OwlslyBox";
       upgrade = "cd $HOME/nix-dots && nix flake update && sudo nixos-rebuild switch --flake .#OwlslyBox";
+      clean = "sudo nix-collect-garbage -d && nix store optimise";
     };
   };
 
