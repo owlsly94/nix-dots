@@ -50,6 +50,10 @@
       { mode = "n"; key = "<leader>fh"; action = ":Telescope help_tags<CR>"; options = { noremap = true; silent = true; }; }
       # Select all
       { mode = "n"; key = "<C-a>"; action = "gg<S-v>G"; options = { noremap = true; silent = true; }; }
+      # Tabs
+      { mode = "n"; key = "te"; action = ":tabedit"; options = { noremap = true; silent = true; }; }
+      { mode = "n"; key = "<tab>"; action = ":tabnext<Return>"; options = { noremap = true; silent = true; }; }
+      { mode = "n"; key = "<S-tab>"; action = ":tabprev<Return>"; options = { noremap = true; silent = true; }; }
       # Split window
       { mode = "n"; key = "ss"; action = ":split<Return>"; options = { noremap = true; silent = true; }; }
       { mode = "n"; key = "sv"; action = ":vsplit<Return>"; options = { noremap = true; silent = true; }; }
