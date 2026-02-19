@@ -47,8 +47,9 @@ in
         };
 
         "hyprland/window" = {
-          format = "{title}";
+          format = "{}";
           separate-outputs = true;
+          icon = true;
         };
 
         "cpu" = {
@@ -94,7 +95,7 @@ in
             };
           };
         };
-        
+
         "tray" = {
           icon-size = 16;
           spacing = 10;
