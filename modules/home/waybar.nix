@@ -196,7 +196,7 @@ in
       #temperature { color: #${c.base0C}; }
       #memory { color: #${c.base0B}; }
       #pulseaudio { color: #${c.base0A}; }
-      #clock { color: #${c.base0F}; }
+      #clock { color: #${c.base08}; }
       #pulseaudio.muted { color: #${c.base03}; }
       
       #temperature.critical { 
