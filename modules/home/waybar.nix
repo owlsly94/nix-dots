@@ -108,20 +108,20 @@ in
       /* Using Stylix hex colors - c.baseXX returns hex without # */
       
       * {
-          border: none;
-          border-radius: 0;
-          font-family: "JetBrainsMono Nerd Font";
-          font-weight: bold;
-          font-size: 15px;
-          min-height: 0;
+        border: none;
+        border-radius: 0;
+        font-family: "JetBrainsMono Nerd Font";
+        font-weight: bold;
+        font-size: 15px;
+        min-height: 0;
       }
 
       window#waybar {
-          background: #${c.base00};
-          /*background: linear-gradient(to bottom, #${c.base00}, rgba(0, 0, 0, 1));*/
-          color: #${c.base05};
-          /*border-bottom: 2px solid #${c.base0A};*/
-	        /*border-top: 2px solid #${c.base0A};*/
+        background: #${c.base00};
+        /*background: linear-gradient(to bottom, #${c.base00}, rgba(0, 0, 0, 1));*/
+        color: #${c.base05};
+        /*border-bottom: 2px solid #${c.base0A};*/
+	      /*border-top: 2px solid #${c.base0A};*/
       }
 
       #waybar.empty .modules-center{
@@ -129,10 +129,10 @@ in
       }
 
       #taskbar, #window, #cpu, #memory, #temperature, #pulseaudio, #clock, #tray {
-          margin: 6px 3px;
-          padding: 2px 12px;
-          border-radius: 12px;
-          background-color: #${c.base01};
+        margin: 6px 3px;
+        padding: 2px 12px;
+        border-radius: 12px;
+        background-color: #${c.base01};
       }
 
       #tray {
@@ -147,28 +147,28 @@ in
       }
 
       #workspaces button {
-          padding: 0 0 0 2px;
-          margin: 0 3px;
-          color: #${c.base01};
-          background: #${c.base0E};
-          border-radius: 50%;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          min-width: 24px;
-          min-height: 24px;
+        padding: 0 0 0 2px;
+        margin: 0 3px;
+        color: #${c.base01};
+        background: #${c.base0E};
+        border-radius: 50%;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        min-width: 24px;
+        min-height: 24px;
       }
       
       #workspaces button:hover { 
-          background-color: #${c.base0B}; 
-          color: #${c.base01};
+        background-color: #${c.base0B}; 
+        color: #${c.base01};
       }
 
       #workspaces button.active { 
-          color: #${c.base00}; 
-          background-color: #${c.base0D};
-          font-weight: bold;
-          border-radius: 16px;
-          border: none;
-          padding: 0 12px;
+        color: #${c.base00}; 
+        background-color: #${c.base0D};
+        font-weight: bold;
+        border-radius: 16px;
+        border: none;
+        padding: 0 12px;
       }
 
       #workspaces button.urgent { 
@@ -200,18 +200,18 @@ in
       #pulseaudio.muted { color: #${c.base03}; }
       
       #temperature.critical { 
-          color: #${c.base00}; 
-          background-color: #${c.base08}; 
+        color: #${c.base00}; 
+        background-color: #${c.base08}; 
       }
 
       tooltip {
-          background: #${c.base00};
-          border: 1px solid #${c.base0D};
-          border-radius: 8px;
+        background: #${c.base00};
+        border: 1px solid #${c.base0D};
+        border-radius: 8px;
       }
-      
+
       tooltip label { 
-          color: #${c.base05}; 
+        color: #${c.base05}; 
       }
     '';
   }; 
