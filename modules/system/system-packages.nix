@@ -25,5 +25,9 @@
     noto-fonts-color-emoji
   ];
   
-  fonts.fontconfig.defaultFonts.emoji = ["Noto Color Emoji"];
+  fonts.fontconfig = { 
+    defaultFonts = { 
+      emoji = ["Noto Color Emoji"];
+    };
+  };
 }
