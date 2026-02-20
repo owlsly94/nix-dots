@@ -6,7 +6,7 @@
     inputs.nixvim.homeModules.nixvim
     ./modules/home/nixvim.nix
     ./modules/home/theme.nix
-    ./theme-switcher.nix
+    ./modules/home/theme-switcher.nix
     ./modules/home/imv.nix
     ./modules/home/zsh.nix
     ./modules/home/starship.nix
