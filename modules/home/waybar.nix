@@ -50,6 +50,7 @@ in
           format = "{}";
           separate-outputs = true;
           icon = true;
+          max-length = 50;
         };
 
         "cpu" = {
