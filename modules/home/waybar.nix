@@ -117,7 +117,8 @@ in
       }
 
       window#waybar {
-          background: linear-gradient(to bottom, #${c.base00}, rgba(0, 0, 0, 1));
+          background: #${c.base00};
+          /*background: linear-gradient(to bottom, #${c.base00}, rgba(0, 0, 0, 1));*/
           color: #${c.base05};
           /*border-bottom: 2px solid #${c.base0A};*/
 	        /*border-top: 2px solid #${c.base0A};*/
