@@ -40,6 +40,7 @@
       specialArgs = { inherit inputs pkgs-unstable; };
       modules = [
         ./configuration.nix
+        ./modules/system/openrgb.nix
         { nixpkgs.config.allowUnfree = true; }
         stylix.nixosModules.stylix
         {
