@@ -53,9 +53,9 @@
         deband-threshold = 32;
         deband-grain = 4;
         cache = "yes";
-        cache-secs = 15;
-        demuxer-max-bytes = "150MiB";
-        demuxer-readahead-secs = 10;
+        cache-secs = 30;
+        demuxer-max-bytes = "1GiB";
+        demuxer-readahead-secs = 30;
         hls-bitrate = "max";
       };
     };
