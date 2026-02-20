@@ -42,6 +42,7 @@
       hyprland.enable = false;
       waybar.enable = false;
       kitty.enable = true;
+      #ghostty.enable = false;
       alacritty.enable = false;
       gtk.enable = true;
       nixvim.enable = false;

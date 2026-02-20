@@ -5,6 +5,7 @@
     # Terminals & Editors
     alacritty  # GPU-accelerated terminal
     kitty      # Feature-rich terminal with graphics support
+    #ghostty     # Terminal emulator with a focus on aesthetics
 
     # Development
     vscode     # GUI code editor
