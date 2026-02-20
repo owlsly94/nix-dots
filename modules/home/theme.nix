@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    noto-fonts-color-emoji
+  ];
+
   stylix = {
     enable = true;
     image = ../../wallpaper.png; 
