@@ -6,6 +6,7 @@
     inputs.nixvim.homeModules.nixvim
     ./modules/home/nixvim.nix
     ./modules/home/theme.nix
+    ./modules/home/imv.nix
     ./modules/home/zsh.nix
     ./modules/home/starship.nix
     ./modules/home/kitty.nix
