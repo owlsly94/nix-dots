@@ -192,6 +192,7 @@
         ## System & Scripts
         "ALT, L, exec, hyprlock"
 	      "SUPER, W, exec, wall-selector"
+        "SUPER, T, exec, stylix-theme-picker"
         "ALT SHIFT, R, exec, pkill -SIGUSR2 waybar"
 
         ## Scratchpads (Pyprland)
