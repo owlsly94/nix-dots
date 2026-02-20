@@ -69,7 +69,7 @@
     ];
 
     # ── Colorscheme ───────────────────────────────────────────────────────
-    colorschemes.tokyonight = {
+    colorschemes.nord = {
       enable = true;
       settings.style = "moon";
       transparent = true;
@@ -207,7 +207,7 @@
         settings = {
           options = {
             icons_enabled = true;
-            theme = "tokyonight";
+            theme = "nord";
             component_separators = {
               left = "";
               right = "";

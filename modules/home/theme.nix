@@ -4,7 +4,7 @@
   stylix = {
     enable = true;
     image = ../../wallpaper.png; 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     polarity = "dark";
     
     enableReleaseChecks = false;
