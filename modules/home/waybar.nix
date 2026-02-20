@@ -18,12 +18,12 @@ in
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [
+          "tray"
           "cpu"
           "temperature"
           "memory"
           "pulseaudio"
           "clock"
-          "tray"
         ];
 
         "hyprland/workspaces" = {
@@ -131,6 +131,10 @@ in
           padding: 2px 12px;
           border-radius: 12px;
           background-color: #${c.base01};
+      }
+
+      #tray {
+        background-color:transparent;
       }
 
       #workspaces {
