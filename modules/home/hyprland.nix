@@ -30,8 +30,8 @@
       ###################
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
-      "$main_browser" = "zen";
-      #"$main_browser" = "google-chrome-stable";
+      #"$main_browser" = "zen";
+      "$main_browser" = "google-chrome-stable";
       "$browser" = "firefox";
       "$browser_p" = "firefox -p";
       "$myEditor" = "code";
