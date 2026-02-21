@@ -69,7 +69,7 @@
     ];
 
     # ── Colorscheme ───────────────────────────────────────────────────────
-    colorschemes.nord = {
+    colorschemes.gruvbox = {
       enable = true;
       settings.style = "moon";
       transparent = true;
@@ -207,7 +207,7 @@
         settings = {
           options = {
             icons_enabled = true;
-            theme = "nord";
+            theme = "gruvbox";
             component_separators = {
               left = "";
               right = "";
