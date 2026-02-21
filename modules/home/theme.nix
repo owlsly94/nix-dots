@@ -29,6 +29,10 @@ in
         package = pkgs.iosevka;
         name = "Iosevka Etoile";
       };
+      emoji = {
+        package = pkgs.noto-fonts-color-emoji;
+        name = "Noto Color Emoji";
+      };
       sizes = {
         applications = 13;
         terminal = 13;

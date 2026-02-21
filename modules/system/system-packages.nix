@@ -19,15 +19,4 @@
     glfw              # OpenGL/Vulkan window context library
     ffmpegthumbnailer # Video thumbnail generation for file managers
   ];
-
-  # Emoji font support
-  fonts.packages = with pkgs; [
-    noto-fonts-color-emoji
-  ];
-  
-  fonts.fontconfig = { 
-    defaultFonts = { 
-      emoji = ["Noto Color Emoji"];
-    };
-  };
 }
