@@ -30,6 +30,8 @@
       ###################
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
+      "$main_browser" = "zen";
+      #"$main_browser" = "google-chrome-stable";
       "$browser" = "firefox";
       "$browser_p" = "firefox -p";
       "$myEditor" = "code";
@@ -52,6 +54,7 @@
         # Workspace 2: Browsers
         "workspace 2, class:^(google-chrome)$"
         "workspace 2, class:^(firefox)$"
+        "workspace 2, class:^(zen)$"
 
         # Workspace 3: Code
         "workspace 3, class:^(code-url-handler)$"
@@ -177,7 +180,7 @@
         ## Browsers & Productivity
         "SUPER, F, exec, firefox"
         "SUPER SHIFT, F, exec, $browser_p"
-        "SUPER, B, exec, google-chrome-stable"
+        "SUPER, B, exec, $main_browser"
         "SUPER, C, exec, code"
         "SUPER, O, exec, obs"
         "ALT, D, exec, thunar"
