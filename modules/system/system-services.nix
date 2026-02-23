@@ -34,6 +34,20 @@
 
   programs.virt-manager.enable = true;   # GUI for managing VMs
   services.spice-vdagentd.enable = true; # SPICE agent (clipboard sync, auto-resize)
+  systemd.services.libvirt-default-network = {
+    description = "Start libvirt default network";
+    after = [ "libvirtd.service" ];
+    wants = [ "libvirtd.service" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = pkgs.writeShellScript "libvirt-default-network" ''
+        ${pkgs.libvirt}/bin/virsh net-autostart default
+        ${pkgs.libvirt}/bin/virsh net-start default || true
+      '';
+    };
+  };
 
   ####################
   ### AUDIO SETUP ####
