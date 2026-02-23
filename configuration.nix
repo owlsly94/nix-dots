@@ -11,6 +11,7 @@
     ./modules/system/desktop.nix
     ./modules/system/users.nix
     ./modules/system/gamemode.nix
+    ./modules/system/storage.nix
     ./modules/system/nix-settings.nix
   ];
 
