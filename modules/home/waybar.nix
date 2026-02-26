@@ -59,10 +59,6 @@ in
         };
 
         "temperature" = {
-          # Temperature sensor path - may vary by hardware
-          # Find your sensor with: find /sys/class/hwmon -name "temp*_input" -type f
-          # Or use: cat /sys/class/thermal/thermal_zone*/name to see available zones
-          # Then adjust hwmon-path and thermal-zone accordingly
           hwmon-path = "/sys/class/hwmon/hwmon5/temp1_input";
           critical-threshold = 80;
           format = "{icon} {temperatureC}°C";
