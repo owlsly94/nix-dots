@@ -43,15 +43,7 @@
         ./modules/system/openrgb.nix
         { nixpkgs.config.allowUnfree = true; }
         stylix.nixosModules.stylix
-        {
-          nixpkgs.overlays = [
-            (final: prev: {
-              lutris = pkgs-unstable.lutris;
-              vscode = pkgs-unstable.vscode;
-              discord = pkgs-unstable.discord;
-            })
-          ];
-        }
+        (import ./modules/system/overlays.nix { inherit pkgs-unstable; })
 
         home-manager.nixosModules.home-manager
         {
