@@ -19,6 +19,7 @@
     ./modules/home/dunst.nix
     ./modules/home/fastfetch.nix
     ./modules/home/obs.nix
+    ./modules/home/pipewire.nix
     ./modules/home/mpv.nix
     ./modules/home/chrome-browser.nix
     ./modules/home/hyprland.nix

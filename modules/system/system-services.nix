@@ -58,6 +58,8 @@
     alsa.enable = true;
     alsa.support32Bit = true; # Required for 32-bit apps (e.g. Wine/Steam)
     pulse.enable = true;      # PulseAudio compatibility layer
+    jack.enable = true;       # JACK support for pro audio (needed for some apps)
+    wireplumber.enable = true; # Session manager for device detection and routing
   };
 
   ##############################
