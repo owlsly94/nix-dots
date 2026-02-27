@@ -47,6 +47,7 @@
 
     # Browsers
     firefox    # Mozilla browser
+    brave      # Privacy-oriented browser
     #floorp-bin # Firefox fork with extra customisation
 
     # Additional Tools
